@@ -85,8 +85,6 @@ endif
 " Configuration Variables:
 " - g:jellybeans_overrides          (default = {})
 " - g:jellybeans_use_lowcolor_black (default = 0)
-" - g:jellybeans_use_gui_italics    (default = 1)
-" - g:jellybeans_use_term_italics   (default = 0)
 
 let s:background_color = "#000000"
 
@@ -377,13 +375,6 @@ fun! s:prefix_highlight_value_with(prefix, color)
   endif
 endfun
 
-fun! s:remove_italic_attr(attr)
-  let l:attr = join(filter(split(a:attr, ","), "v:val !=? 'italic'"), ",")
-  if empty(l:attr)
-    let l:attr = "NONE"
-  endif
-  return l:attr
-endfun
 
 " sets the highlighting for the given group
 fun! s:X(group, fg, bg, attr, lcfg, lcbg)
@@ -404,17 +395,8 @@ fun! s:X(group, fg, bg, attr, lcfg, lcbg)
 
   let l:attr = s:prefix_highlight_value_with("", a:attr)
 
-  if exists("g:jellybeans_use_term_italics") && g:jellybeans_use_term_italics
-    let l:cterm_attr = l:attr
-  else
-    let l:cterm_attr = s:remove_italic_attr(l:attr)
-  endif
-
-  if !exists("g:jellybeans_use_gui_italics") || g:jellybeans_use_gui_italics
-    let l:gui_attr = l:attr
-  else
-    let l:gui_attr = s:remove_italic_attr(l:attr)
-  endif
+  let l:cterm_attr = l:attr
+  let l:gui_attr = l:attr
 
   let l:cmd = l:cmd." gui=".l:gui_attr." cterm=".l:cterm_attr
   exec l:cmd
@@ -724,7 +706,6 @@ endif
 
 " delete functions {{{
 delf s:X
-delf s:remove_italic_attr
 delf s:prefix_highlight_value_with
 delf s:rgb
 delf s:is_empty_or_none
