@@ -70,18 +70,6 @@ endif
 
 let colors_name = "jellybeans"
 
-if has("gui_running") || (has('termguicolors') && &termguicolors)
-  let s:true_color = 1
-else
-  let s:true_color = 0
-endif
-
-if s:true_color || &t_Co >= 88
-  let s:low_color = 0
-else
-  let s:low_color = 1
-endif
-
 " Configuration Variables:
 " - g:jellybeans_overrides          (default = {})
 " - g:jellybeans_use_lowcolor_black (default = 0)
@@ -378,20 +366,12 @@ endfun
 
 " sets the highlighting for the given group
 fun! s:X(group, fg, bg, attr, lcfg, lcbg)
-  if s:low_color
-    let l:cmd = "hi ".a:group.
-    \ " ctermfg=".s:prefix_highlight_value_with("", a:lcfg).
-    \ " ctermbg=".s:prefix_highlight_value_with("", a:lcbg)
-  else
     let l:cmd = "hi ".a:group.
     \ " guifg=".s:prefix_highlight_value_with("#", a:fg).
     \ " guibg=".s:prefix_highlight_value_with("#", a:bg)
-    if !s:true_color
       let l:cmd = l:cmd.
       \ " ctermfg=".s:rgb(a:fg).
       \ " ctermbg=".s:rgb(a:bg)
-    endif
-  endif
 
   let l:attr = s:prefix_highlight_value_with("", a:attr)
 
@@ -640,16 +620,6 @@ call s:X("IndentGuidesEven","","#1b1b1b","","","")
 hi! link TagListFileName Directory
 call s:X("PreciseJumpTarget","#B9ED67","#405026","","White","Green")
 
-" Manual overrides for 256-color terminals. Dark colors auto-map badly.
-if !s:low_color
-  hi StatusLineNC ctermbg=235
-  hi Folded ctermbg=236
-  hi DiffText ctermfg=81
-  hi DbgBreakPt ctermbg=53
-  hi IndentGuidesOdd ctermbg=235
-  hi IndentGuidesEven ctermbg=234
-endif
-
 if !empty("s:overrides")
   fun! s:current_attr(group)
     let l:synid = synIDtrans(hlID(a:group))
@@ -675,14 +645,12 @@ if !empty("s:overrides")
     \                 get(a:def, "attr", s:current_attr(a:group)),
     \                 get(a:def, "ctermfg", s:current_color(a:group, "fg", "cterm")),
     \                 get(a:def, "ctermbg", s:current_color(a:group, "bg", "cterm")))
-    if !s:low_color
       for l:prop in ["ctermfg", "ctermbg"]
         let l:override_key = "256".l:prop
         if has_key(a:def, l:override_key)
           exec "hi ".a:group." ".l:prop."=".a:def[l:override_key]
         endif
       endfor
-    endif
   endfun
   fun! s:load_colors(defs)
     for [l:group, l:def] in items(a:defs)
