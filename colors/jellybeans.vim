@@ -109,11 +109,7 @@ if exists("g:jellybeans_background_color")
   endif
 endif
 
-if exists("g:jellybeans_use_lowcolor_black") && g:jellybeans_use_lowcolor_black
-  let s:termBlack = "Black"
-else
-  let s:termBlack = "Grey"
-endif
+let s:termBlack = "Black"
 
 " When `termguicolors` is set, Vim[^1] ignores `hi Normal guibg=NONE`
 " after Normal's `guibg` is already set to a color. See:
@@ -134,167 +130,71 @@ endif
 " Color approximation functions by Henry So, Jr. and David Liang {{{
 " Added to jellybeans.vim by Daniel Herbert
 
-if &t_Co == 88
 
-  " returns an approximate grey index for the given grey level
-  fun! s:grey_number(x)
-    if a:x < 23
-      return 0
-    elseif a:x < 69
-      return 1
-    elseif a:x < 103
-      return 2
-    elseif a:x < 127
-      return 3
-    elseif a:x < 150
-      return 4
-    elseif a:x < 173
-      return 5
-    elseif a:x < 196
-      return 6
-    elseif a:x < 219
-      return 7
-    elseif a:x < 243
-      return 8
+" returns an approximate grey index for the given grey level
+fun! s:grey_number(x)
+  if a:x < 14
+    return 0
+  else
+    let l:n = (a:x - 8) / 10
+    let l:m = (a:x - 8) % 10
+    if l:m < 5
+      return l:n
     else
-      return 9
+      return l:n + 1
     endif
-  endfun
+  endif
+endfun
 
-  " returns the actual grey level represented by the grey index
-  fun! s:grey_level(n)
-    if a:n == 0
-      return 0
-    elseif a:n == 1
-      return 46
-    elseif a:n == 2
-      return 92
-    elseif a:n == 3
-      return 115
-    elseif a:n == 4
-      return 139
-    elseif a:n == 5
-      return 162
-    elseif a:n == 6
-      return 185
-    elseif a:n == 7
-      return 208
-    elseif a:n == 8
-      return 231
+" returns the actual grey level represented by the grey index
+fun! s:grey_level(n)
+  if a:n == 0
+    return 0
+  else
+    return 8 + (a:n * 10)
+  endif
+endfun
+
+" returns the palette index for the given grey index
+fun! s:grey_color(n)
+  if a:n == 0
+    return 16
+  elseif a:n == 25
+    return 231
+  else
+    return 231 + a:n
+  endif
+endfun
+
+" returns an approximate color index for the given color level
+fun! s:rgb_number(x)
+  if a:x < 75
+    return 0
+  else
+    let l:n = (a:x - 55) / 40
+    let l:m = (a:x - 55) % 40
+    if l:m < 20
+      return l:n
     else
-      return 255
+      return l:n + 1
     endif
-  endfun
+  endif
+endfun
 
-  " returns the palette index for the given grey index
-  fun! s:grey_color(n)
-    if a:n == 0
-      return 16
-    elseif a:n == 9
-      return 79
-    else
-      return 79 + a:n
-    endif
-  endfun
+" returns the actual color level for the given color index
+fun! s:rgb_level(n)
+  if a:n == 0
+    return 0
+  else
+    return 55 + (a:n * 40)
+  endif
+endfun
 
-  " returns an approximate color index for the given color level
-  fun! s:rgb_number(x)
-    if a:x < 69
-      return 0
-    elseif a:x < 172
-      return 1
-    elseif a:x < 230
-      return 2
-    else
-      return 3
-    endif
-  endfun
+" returns the palette index for the given R/G/B color indices
+fun! s:rgb_color(x, y, z)
+  return 16 + (a:x * 36) + (a:y * 6) + a:z
+endfun
 
-  " returns the actual color level for the given color index
-  fun! s:rgb_level(n)
-    if a:n == 0
-      return 0
-    elseif a:n == 1
-      return 139
-    elseif a:n == 2
-      return 205
-    else
-      return 255
-    endif
-  endfun
-
-  " returns the palette index for the given R/G/B color indices
-  fun! s:rgb_color(x, y, z)
-    return 16 + (a:x * 16) + (a:y * 4) + a:z
-  endfun
-
-else " assuming &t_Co == 256
-
-  " returns an approximate grey index for the given grey level
-  fun! s:grey_number(x)
-    if a:x < 14
-      return 0
-    else
-      let l:n = (a:x - 8) / 10
-      let l:m = (a:x - 8) % 10
-      if l:m < 5
-        return l:n
-      else
-        return l:n + 1
-      endif
-    endif
-  endfun
-
-  " returns the actual grey level represented by the grey index
-  fun! s:grey_level(n)
-    if a:n == 0
-      return 0
-    else
-      return 8 + (a:n * 10)
-    endif
-  endfun
-
-  " returns the palette index for the given grey index
-  fun! s:grey_color(n)
-    if a:n == 0
-      return 16
-    elseif a:n == 25
-      return 231
-    else
-      return 231 + a:n
-    endif
-  endfun
-
-  " returns an approximate color index for the given color level
-  fun! s:rgb_number(x)
-    if a:x < 75
-      return 0
-    else
-      let l:n = (a:x - 55) / 40
-      let l:m = (a:x - 55) % 40
-      if l:m < 20
-        return l:n
-      else
-        return l:n + 1
-      endif
-    endif
-  endfun
-
-  " returns the actual color level for the given color index
-  fun! s:rgb_level(n)
-    if a:n == 0
-      return 0
-    else
-      return 55 + (a:n * 40)
-    endif
-  endfun
-
-  " returns the palette index for the given R/G/B color indices
-  fun! s:rgb_color(x, y, z)
-    return 16 + (a:x * 36) + (a:y * 6) + a:z
-  endfun
-
-endif
 
 " returns the palette index to approximate the given R/G/B color levels
 fun! s:color(r, g, b)
@@ -367,12 +267,12 @@ endfun
 
 " sets the highlighting for the given group
 fun! s:X(group, fg, bg, attr, lcfg, lcbg)
-    let l:cmd = "hi ".a:group.
-    \ " guifg=".s:prefix_highlight_value_with("#", a:fg).
-    \ " guibg=".s:prefix_highlight_value_with("#", a:bg)
-      let l:cmd = l:cmd.
-      \ " ctermfg=".s:rgb(a:fg).
-      \ " ctermbg=".s:rgb(a:bg)
+  let l:cmd = "hi ".a:group.
+        \ " guifg=".s:prefix_highlight_value_with("#", a:fg).
+        \ " guibg=".s:prefix_highlight_value_with("#", a:bg)
+  let l:cmd = l:cmd.
+        \ " ctermfg=".s:rgb(a:fg).
+        \ " ctermbg=".s:rgb(a:bg)
 
   let l:attr = s:prefix_highlight_value_with("", a:attr)
 
@@ -399,21 +299,21 @@ call s:X("CursorColumn","","1c1c1c","","",s:termBlack)
 " low-color terminals if the preferred background color is
 " not available.
 if !has('gui_running') && $TERM_PROGRAM == "Apple_Terminal"
-    let s:matchParenGuiFg = "#dd0093"
-    let s:matchParenGuiBg = "#000000"
+  let s:matchParenGuiFg = "#dd0093"
+  let s:matchParenGuiBg = "#000000"
 else
-    let s:matchParenGuiFg = "#ffffff"
-    let s:matchParenGuiBg = "#556779"
+  let s:matchParenGuiFg = "#ffffff"
+  let s:matchParenGuiBg = "#556779"
 endif
 if s:termBlack != "Black"
-    let s:matchParenTermFg = "Magenta"
-    let s:matchParenTermBg = ""
+  let s:matchParenTermFg = "Magenta"
+  let s:matchParenTermBg = ""
 else
-    let s:matchParenTermFg = ""
-    let s:matchParenTermBg = s:termBlack
+  let s:matchParenTermFg = ""
+  let s:matchParenTermBg = s:termBlack
 endif
 call s:X("MatchParen",s:matchParenGuiFg,s:matchParenGuiBg,"bold",
-\                     s:matchParenTermFg,s:matchParenTermBg)
+      \                     s:matchParenTermFg,s:matchParenTermBg)
 
 call s:X("TabLine","000000","b0b8c0","italic","",s:termBlack)
 call s:X("TabLineFill","9098a0","","","",s:termBlack)
@@ -642,16 +542,16 @@ if !empty("s:overrides")
   endfun
   fun! s:load_color_def(group, def)
     call s:X(a:group, get(a:def, "guifg", s:current_color(a:group, "fg", "gui")),
-    \                 get(a:def, "guibg", s:current_color(a:group, "bg", "gui")),
-    \                 get(a:def, "attr", s:current_attr(a:group)),
-    \                 get(a:def, "ctermfg", s:current_color(a:group, "fg", "cterm")),
-    \                 get(a:def, "ctermbg", s:current_color(a:group, "bg", "cterm")))
-      for l:prop in ["ctermfg", "ctermbg"]
-        let l:override_key = "256".l:prop
-        if has_key(a:def, l:override_key)
-          exec "hi ".a:group." ".l:prop."=".a:def[l:override_key]
-        endif
-      endfor
+          \                 get(a:def, "guibg", s:current_color(a:group, "bg", "gui")),
+          \                 get(a:def, "attr", s:current_attr(a:group)),
+          \                 get(a:def, "ctermfg", s:current_color(a:group, "fg", "cterm")),
+          \                 get(a:def, "ctermbg", s:current_color(a:group, "bg", "cterm")))
+    for l:prop in ["ctermfg", "ctermbg"]
+      let l:override_key = "256".l:prop
+      if has_key(a:def, l:override_key)
+        exec "hi ".a:group." ".l:prop."=".a:def[l:override_key]
+      endif
+    endfor
   endfun
   fun! s:load_colors(defs)
     for [l:group, l:def] in items(a:defs)
