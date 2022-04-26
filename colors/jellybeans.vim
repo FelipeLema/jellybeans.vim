@@ -320,7 +320,7 @@ call s:X("TabLineFill","9098a0","","","",s:termBlack)
 call s:X("TabLineSel","000000","f0f0f0","italic,bold",s:termBlack,"White")
 
 " Auto-completion
-call s:X("Pmenu","#ffffff","#606060","","White",s:termBlack)
+call s:X("Pmenu","#ffffff","#090515","","White",s:termBlack)
 call s:X("PmenuSel","#101010","#eeeeee","",s:termBlack,"White")
 
 call s:X("Visual","","#404040","","",s:termBlack)
