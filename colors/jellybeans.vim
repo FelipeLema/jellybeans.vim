@@ -516,6 +516,22 @@ endif
 call s:X("IndentGuidesOdd","","#232323","","","")
 call s:X("IndentGuidesEven","","#1b1b1b","","","")
 
+" LSP, diagnostics (same colors as spell checking)
+hi! link SpellBad   DiagnosticError
+hi! link SpellCap   DiagnosticHint
+hi! link SpellRare  DiagnosticWarn
+hi! link SpellLocal DiagnosticInfo
+
+hi DiagnosticUnderlineError gui=undercurl guisp=DarkRed
+hi DiagnosticUnderlineHint  gui=undercurl guisp=#dddddd
+hi DiagnosticUnderlineWarn  gui=undercurl guisp=DarkMagenta
+hi DiagnosticUnderlineInfo  gui=undercurl guisp=Green
+
+hi DiagnosticVirtualTextError gui=italic guifg=DarkRed
+hi DiagnosticVirtualTextHint  gui=italic guifg=#dddddd
+hi DiagnosticVirtualTextWarn  gui=italic guifg=DarkMagenta
+hi DiagnosticVirtualTextInfo  gui=italic guifg=Green
+
 " Plugins, etc.
 
 hi! link TagListFileName Directory
