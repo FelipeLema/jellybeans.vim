@@ -532,6 +532,19 @@ hi DiagnosticVirtualTextHint  gui=italic guifg=#dddddd
 hi DiagnosticVirtualTextWarn  gui=italic guifg=#a40073
 hi DiagnosticVirtualTextInfo  gui=italic guifg=Green
 
+" Vimwiki
+hi VimwikiDelText gui=strikethrough
+
+" indent-blankline.nvim
+highlight! IndentBlanklineChar guifg=#101010 gui=nocombine
+
+" nvim-tabline
+" MatchParen.bg, bg = TabLineSel.bg
+hi! TabLineSeparatorActive guifg=#556779 guibg=#f0f0f0
+
+" Telescope
+" based on «Search»
+hi! TelescopeMatching guifg=#799d6a guibg=#203028 gui=underline
 " Plugins, etc.
 
 hi! link TagListFileName Directory
