@@ -524,12 +524,12 @@ hi! link SpellLocal DiagnosticInfo
 
 hi DiagnosticUnderlineError gui=undercurl guisp=DarkRed
 hi DiagnosticUnderlineHint  gui=undercurl guisp=#dddddd
-hi DiagnosticUnderlineWarn  gui=undercurl guisp=DarkMagenta
+hi DiagnosticUnderlineWarn  gui=undercurl guisp=#540063
 hi DiagnosticUnderlineInfo  gui=undercurl guisp=Green
 
 hi DiagnosticVirtualTextError gui=italic guifg=DarkRed
 hi DiagnosticVirtualTextHint  gui=italic guifg=#dddddd
-hi DiagnosticVirtualTextWarn  gui=italic guifg=DarkMagenta
+hi DiagnosticVirtualTextWarn  gui=italic guifg=#a40073
 hi DiagnosticVirtualTextInfo  gui=italic guifg=Green
 
 " Plugins, etc.
