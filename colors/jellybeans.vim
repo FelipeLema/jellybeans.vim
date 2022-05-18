@@ -522,12 +522,12 @@ hi! link SpellCap   DiagnosticHint
 hi! link SpellRare  DiagnosticWarn
 hi! link SpellLocal DiagnosticInfo
 
-hi DiagnosticUnderlineError gui=undercurl guisp=DarkRed
+hi DiagnosticUnderlineError gui=undercurl guisp=#f37970
 hi DiagnosticUnderlineHint  gui=undercurl guisp=#dddddd
 hi DiagnosticUnderlineWarn  gui=undercurl guisp=#540063
 hi DiagnosticUnderlineInfo  gui=undercurl guisp=Green
 
-hi DiagnosticVirtualTextError gui=italic guifg=DarkRed
+hi DiagnosticVirtualTextError gui=italic guifg=#f37970
 hi DiagnosticVirtualTextHint  gui=italic guifg=#dddddd
 hi DiagnosticVirtualTextWarn  gui=italic guifg=#a40073
 hi DiagnosticVirtualTextInfo  gui=italic guifg=Green
