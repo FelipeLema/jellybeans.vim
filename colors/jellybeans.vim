@@ -545,6 +545,10 @@ hi! TabLineSeparatorActive guifg=#556779 guibg=#f0f0f0
 " Telescope
 " based on «Search»
 hi! TelescopeMatching guifg=#799d6a guibg=#203028 gui=underline
+
+" vim-matchup
+" I'd wish that using italic was enough, but I can barely notice
+hi! MatchWord guisp=#99ad6a cterm=underline gui=underline
 " Plugins, etc.
 
 hi! link TagListFileName Directory
