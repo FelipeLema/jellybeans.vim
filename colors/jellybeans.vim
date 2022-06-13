@@ -76,6 +76,7 @@ let colors_name = "jellybeans"
 " - g:jellybeans_use_lowcolor_black (default = 0)
 
 let s:background_color = "#000000"
+let s:foreground_color = "#e8e8d3"
 
 if exists("g:jellybeans_overrides")
   let s:overrides = g:jellybeans_overrides
@@ -284,7 +285,7 @@ fun! s:X(group, fg, bg, attr, lcfg, lcbg)
 endfun
 " }}}
 
-call s:X("Normal","#e8e8d3",s:background_color,"","White","")
+exec 'hi Normal  guifg=' . s:foreground_color . ' guibg=' . s:background_color
 set background=dark
 
 call s:X("CursorLine"  ,"","#1c1c1c","","",s:termBlack)
@@ -308,7 +309,7 @@ call s:X("TabLineFill","#9098a0",""       ,""      ,""   ,s:termBlack)
 call s:X("TabLineSel" ,"#ffffff","#777777","italic",s:termBlack,"White")
 
 " Auto-completion
-call s:X("Pmenu","#ffffff","#090515","","White",s:termBlack)
+exec 'hi  Pmenu guifg=' . s:foreground_color . ' guibg=#0C0038'
 call s:X("PmenuSel","#101010","#eeeeee","",s:termBlack,"White")
 
 call s:X("Visual","","#404040","","",s:termBlack)
@@ -379,6 +380,9 @@ call s:X("DiffAdd","#D2EBBE","#437019","","White","DarkGreen")
 call s:X("DiffDelete","#40000A","#700009","","DarkRed","DarkRed")
 call s:X("DiffChange","","#2B5B77","","White","DarkBlue")
 call s:X("DiffText","#8fbfdc","#000000","reverse","Yellow","")
+
+" floating windows (neovim)
+exec 'hi NormalFloat guifg=' . s:foreground_color . ' guibg=#090515'
 
 " PHP
 
