@@ -317,7 +317,8 @@ call s:X("Cursor",s:background_color,"#b0d0f0","","","")
 
 call s:X("LineNr","#605958",s:background_color,"NONE",s:termBlack,"")
 call s:X("CursorLineNr","#ccc5c4","","NONE","White","")
-call s:X("Comment","#888888","","italic","Grey","")
+hi Comment        gui=italic guifg=#888888
+hi SpecialComment gui=italic guifg=#c6b6fe
 call s:X("Todo","#c7c7c7","","bold","White",s:termBlack)
 
 call s:X("StatusLine","#000000","#dddddd","italic","","White")
