@@ -365,10 +365,10 @@ call s:X("Question","#65C254","","","Green","")
 
 " Spell Checking
 
-call s:X("SpellBad"  ,"","#902020","undercurl","","DarkRed")
-call s:X("SpellCap"  ,"","#dddddd","undercurl","","LightBlue")
-call s:X("SpellRare" ,"","#540063","undercurl","","DarkMagenta")
-call s:X("SpellLocal","","#2D7067","undercurl","","Green")
+hi SpellBad guifg=#902020 gui=undercurl
+hi SpellCap guifg=#dddddd gui=undercurl
+hi SpellRare guifg=#540063 gui=undercurl
+hi SpellLocal guifg=#2D7067 gui=undercurl
 
 " Diff
 
@@ -542,6 +542,9 @@ hi! TelescopeMatching guifg=#799d6a guibg=#203028 gui=underline
 " vim-matchup
 " I'd wish that using italic was enough, but I can barely notice
 hi! MatchWord guisp=#99ad6a cterm=underline gui=underline
+
+" Neomake
+hi NeomakeVirtualtextError guifg=#902020 gui=italic
 " Plugins, etc.
 
 hi! link TagListFileName Directory
