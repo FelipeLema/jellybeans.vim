@@ -61,6 +61,9 @@
 " NECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 " THE SOFTWARE.
 
+" Note: this ↓ is real good for playing with colors for this theme
+" https://color.adobe.com/es/create/color-wheel
+
 set background=dark
 
 hi clear
