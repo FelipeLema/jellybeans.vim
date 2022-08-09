@@ -369,7 +369,7 @@ call s:X("Question","#65C254","","","Green","")
 " Spell Checking
 
 hi SpellBad guifg=#902020 gui=undercurl
-hi SpellCap guifg=#dddddd gui=undercurl
+hi SpellCap guifg=#808080 gui=undercurl
 hi SpellRare guifg=#540063 gui=undercurl
 hi SpellLocal guifg=#2D7067 gui=undercurl
 
@@ -519,12 +519,12 @@ hi! link SpellRare  DiagnosticWarn
 hi! link SpellLocal DiagnosticInfo
 
 hi DiagnosticUnderlineError gui=undercurl guisp=#f37970
-hi DiagnosticUnderlineHint  gui=undercurl guisp=#dddddd
+hi DiagnosticUnderlineHint  gui=undercurl guisp=#808080
 hi DiagnosticUnderlineWarn  gui=undercurl guisp=#540063
 hi DiagnosticUnderlineInfo  gui=undercurl guisp=Green
 
 hi DiagnosticVirtualTextError gui=italic guifg=#f37970
-hi DiagnosticVirtualTextHint  gui=italic guifg=#dddddd
+hi DiagnosticVirtualTextHint  gui=italic guifg=#808080
 hi DiagnosticVirtualTextWarn  gui=italic guifg=#a40073
 hi DiagnosticVirtualTextInfo  gui=italic guifg=Green
 
