@@ -331,7 +331,7 @@ call s:X("WildMenu","#f0a0c0","#302028","","Magenta","")
 
 call s:X("Folded","#a0a8b0","#384048","italic",s:termBlack,"")
 call s:X("FoldColumn","#535D66","#1f1f1f","","",s:termBlack)
-call s:X("SignColumn","#777777","#333333","","",s:termBlack)
+hi SignColumn guifg=#777777 guibg=#333333
 call s:X("ColorColumn","","#000000","","",s:termBlack)
 
 call s:X("Title","#70b950","","bold","Green","")
@@ -343,11 +343,11 @@ call s:X("Delimiter","#668799","","","Grey","")
 call s:X("String","#99ad6a","","","Green","")
 call s:X("StringDelimiter","#556633","","","DarkGreen","")
 
-call s:X("Identifier","#c6b6ee","","","LightCyan","")
-call s:X("Structure","#8fbfdc","","","LightCyan","")
-call s:X("Function","#fad07a","","","Yellow","")
-call s:X("Statement","#8197bf","","","DarkBlue","")
-call s:X("PreProc","#8fbfdc","","","LightBlue","")
+hi Identifier guifg=#c6b6ee
+hi Structure  guifg=#8fbfdc
+hi Function   guifg=#fad07a
+hi Statement  guifg=#8197bf
+hi PreProc    guifg=#8fbfdc
 
 hi! link Operator Structure
 hi! link Conceal Operator
@@ -357,13 +357,13 @@ call s:X("NonText","#606060",s:background_color,"",s:termBlack,"")
 
 call s:X("SpecialKey","#444444","#1c1c1c","",s:termBlack,"")
 
-call s:X("Search","#f0a0c0","#302028","underline","Magenta","")
+hi Search guifg=#f0a0c0 guibg=#302028 gui=underline
 
-call s:X("Directory","#dad085","","","Yellow","")
-call s:X("ErrorMsg","","#902020","","","DarkRed")
+hi Directory guifg=#dad085
+hi ErrorMsg guibg=#902020
 hi! link Error ErrorMsg
 hi! link MoreMsg Special
-call s:X("Question","#65C254","","","Green","")
+hi Question guifg=#65C254
 
 
 " Spell Checking
