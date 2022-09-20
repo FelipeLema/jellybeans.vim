@@ -512,6 +512,11 @@ endif
 call s:X("IndentGuidesOdd","","#232323","","","")
 call s:X("IndentGuidesEven","","#1b1b1b","","","")
 
+" LSP
+hi LspReferenceText  gui=underline guisp=#DEEBFE
+hi LspReferenceRead  guibg=#405026
+hi LspReferenceWrite guibg=#384048
+
 " LSP, diagnostics (same colors as spell checking)
 hi! link SpellBad   DiagnosticError
 hi! link SpellCap   DiagnosticHint
@@ -527,6 +532,11 @@ hi DiagnosticVirtualTextError gui=italic guifg=#f37970
 hi DiagnosticVirtualTextHint  gui=italic guifg=#808080
 hi DiagnosticVirtualTextWarn  gui=italic guifg=#a40073
 hi DiagnosticVirtualTextInfo  gui=italic guifg=Green
+
+hi DiagnosticSignError guifg=#f37970
+hi DiagnosticSignWarn  guifg=#808080
+hi DiagnosticSignInfo  guifg=#a40073
+hi DiagnosticSignHint  guifg=Green
 
 " Vimwiki
 hi VimwikiDelText gui=strikethrough
