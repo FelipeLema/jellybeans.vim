@@ -563,6 +563,46 @@ hi NeomakeVirtualtextError guifg=#902020 gui=italic
 hi! link TagListFileName Directory
 call s:X("PreciseJumpTarget","#B9ED67","#405026","","White","Green")
 
+"" LSP Semantic Highlight ()
+"" https://github.com/theHamsta/nvim-semantic-tokens
+"" https://github.com/neovim/neovim/pull/15723
+
+"  LspNamespace
+hi! link LspType Type
+hi! link LspStatic StorageClass
+hi! link LspOperator pythonOperator
+hi! link LspRegexp rubyRegexp
+hi! link LspDefaultLibrary rubyGlobalVariable
+hi! link LspStruct rubyClass
+hi! link LspTypeParameter javaScriptTemplateVar
+hi! link LspAsync Special
+hi! link LspProperty rubySymbol
+hi! link LspVariable rubySymbol
+hi! link LspMacro javaScriptTemplateVar
+"  LspInterface
+"  LspEnumMember
+"  LspEvent
+"  LspMethod
+"  LspModifier
+"  LspComment
+"  LspString
+"  LspNumber
+"  LspDeclaration
+"  LspDefinition
+"  LspDeprecated
+"  LspAbstract
+"  LspModification
+"  LspDocumentation
+
+" ↓ taken from https://github.com/DasFranck/VSC-Jellybeans
+hi! LspKeyword guifg=#8197BF
+hi! LspClass guifg=#cc9d3b " different from rubyClass
+hi! LspEnum guifg=#a384a8
+hi! LspReadonly guifg=#a384a8
+hi! LspDefaultLibrary guifg=#cc9d3b "class.builtin
+hi! LspParameter guifg=#ffb964
+hi! LspFunction guifg=#fad07a
+
 if !empty("s:overrides")
   fun! s:current_attr(group)
     let l:synid = synIDtrans(hlID(a:group))
