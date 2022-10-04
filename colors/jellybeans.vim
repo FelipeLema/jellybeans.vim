@@ -409,26 +409,26 @@ hi! link pythonOperator Statement
 " Ruby
 
 hi! link rubySharpBang Comment
-call s:X("rubyClass","#447799","","","DarkBlue","")
-call s:X("rubyIdentifier","#c6b6fe","","","Cyan","")
+hi! rubyClass guifg=#447799
+hi! rubyIdentifier guifg=#c6b6fe
 hi! link rubyConstant Type
 hi! link rubyFunction Function
 
-call s:X("rubyInstanceVariable","#c6b6fe","","","Cyan","")
-call s:X("rubySymbol","#7697d6","","","Blue","")
+hi! rubyInstanceVariable guifg=#c6b6fe
+hi! rubySymbol guifg=#7697d6
 hi! link rubyGlobalVariable rubyInstanceVariable
 hi! link rubyModule rubyClass
-call s:X("rubyControl","#7597c6","","","Blue","")
+hi! rubyControl guifg=#7597c6
 
 hi! link rubyString String
 hi! link rubyStringDelimiter StringDelimiter
 hi! link rubyInterpolationDelimiter Identifier
 
-call s:X("rubyRegexpDelimiter","#540063","","","Magenta","")
-call s:X("rubyRegexp","#dd0093","","","DarkMagenta","")
-call s:X("rubyRegexpSpecial","#a40073","","","Magenta","")
+hi! rubyRegexpDelimiter guifg=#540063
+hi! rubyRegexp guifg=#dd0093
+hi! rubyRegexpSpecial guifg=#a40073
 
-call s:X("rubyPredefinedIdentifier","#de5577","","","Red","")
+hi! rubyPredefinedIdentifier guifg=#de5577
 
 " Erlang
 
