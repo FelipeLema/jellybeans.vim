@@ -352,10 +352,10 @@ hi PreProc    guifg=#8fbfdc
 hi! link Operator Structure
 hi! link Conceal Operator
 
-call s:X("Type","#ffb964","","","Yellow","")
-call s:X("NonText","#606060",s:background_color,"",s:termBlack,"")
+hi! Type guifg=#ffb964
+exec 'hi NonText guifg=#606060 guibg=' . s:background_color
 
-call s:X("SpecialKey","#444444","#1c1c1c","",s:termBlack,"")
+hi! SpecialKey guifg=#444444 guibg=#1c1c1c
 
 hi Search guifg=#f0a0c0 guibg=#302028 gui=underline
 
@@ -391,7 +391,7 @@ exec 'hi NormalFloat guifg=' . s:foreground_color . ' guibg=#090515'
 " PHP
 
 hi! link phpFunctions Function
-call s:X("StorageClass","#c59f6f","","","Red","")
+hi! StorageClass guifg=#c59f6f
 hi! link phpSuperglobal Identifier
 hi! link phpQuoteSingle StringDelimiter
 hi! link phpQuoteDouble StringDelimiter
@@ -501,8 +501,8 @@ hi! link xmlProcessingDelim xmlAttrib
 
 " Debugger.vim
 
-call s:X("DbgCurrent","#DEEBFE","#345FA8","","White","DarkBlue")
-call s:X("DbgBreakPt","","#4F0037","","","DarkMagenta")
+hi! DbgCurrent guifg=#DEEBFE guibg=#345FA8
+hi! DbgBreakPt guibg=#4F0037
 
 " vim-indent-guides
 
