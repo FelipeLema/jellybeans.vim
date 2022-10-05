@@ -380,10 +380,10 @@ hi! link diffAdded String
 
 " VimDiff
 
-call s:X("DiffAdd","#D2EBBE","#437019","","White","DarkGreen")
-call s:X("DiffDelete","#40000A","#700009","","DarkRed","DarkRed")
-call s:X("DiffChange","","#2B5B77","","White","DarkBlue")
-call s:X("DiffText","#8fbfdc","#000000","reverse","Yellow","")
+hi! DiffAdd guifg=#D2EBBE guibg=#437019
+hi! DiffDelete guifg=#40000A guibg=#700009
+hi! DiffChange guibg=#2B5B77
+hi! DiffText guifg=#8fbfdc guibg=#000000
 
 " floating windows (neovim)
 exec 'hi NormalFloat guifg=' . s:foreground_color . ' guibg=#090515'
