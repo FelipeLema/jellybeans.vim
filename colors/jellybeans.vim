@@ -572,13 +572,20 @@ hi! link LspType Type
 hi! link LspStatic StorageClass
 hi! link LspOperator pythonOperator
 hi! link LspRegexp rubyRegexp
-hi! link LspDefaultLibrary rubyGlobalVariable
-hi! link LspStruct rubyClass
+hi! LspDefaultLibrary guifg=#c6b6fe gui=nocombine "rubyGlobalVariable-ish
 hi! link LspTypeParameter javaScriptTemplateVar
 hi! link LspAsync Special
-hi! link LspProperty rubySymbol
-hi! link LspVariable rubySymbol
+hi! link LspParameter Identifier
+hi! LspVariable gui=italic
 hi! link LspMacro javaScriptTemplateVar
+
+
+"hi! LspProperty gui=italic "nice idea, but it looks horrible
+"hi! link LspProperty rubySymbol " maybe something brighter… but not that brighter
+"hi! link LspProperty Statement unconvincing… maybe something green-ish
+"hi! LspProperty guifg=#4d7e69
+
+"hi! link LspStruct rubyClass
 "  LspInterface
 "  LspEnumMember
 "  LspEvent
@@ -594,14 +601,14 @@ hi! link LspMacro javaScriptTemplateVar
 "  LspModification
 "  LspDocumentation
 
-" ↓ taken from https://github.com/DasFranck/VSC-Jellybeans
-hi! LspKeyword guifg=#8197BF
-hi! LspClass guifg=#cc9d3b " different from rubyClass
+" ↓ based on https://github.com/DasFranck/VSC-Jellybeans
+hi! LspKeyword guifg=#8197BF " different from rubyClass
+hi! LspClass guifg=#cc9d3b
 hi! LspEnum guifg=#a384a8
-hi! LspReadonly guifg=#a384a8
-hi! LspDefaultLibrary guifg=#cc9d3b "class.builtin
-hi! LspParameter guifg=#ffb964
-hi! LspFunction guifg=#fad07a
+hi! LspReadonly guifg=#a384a8 " class.builtin
+hi! LspDefaultLibrary guifg=#cc9d3b
+hi! LspFunction guifg=#fad07a gui=italic
+
 
 if !empty("s:overrides")
   fun! s:current_attr(group)
