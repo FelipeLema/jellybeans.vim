@@ -98,7 +98,7 @@ hi LineNr guifg=#605958 guibg=#000000
 hi CursorLineNr guifg=#ccc5c4 gui=NONE
 hi Comment        gui=italic guifg=#888888
 hi SpecialComment gui=italic guifg=#c6b6fe
-hi Todo guifg=#c7c7c7 gui=bold
+hi Todo guifg=#c7c7c7 guibg=#000000 gui=bold
 
 hi StatusLine guifg=#000000 guibg=#dddddd gui=italic
 hi StatusLineNC guifg=#ffffff guibg=#403c41 gui=italic
