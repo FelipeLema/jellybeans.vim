@@ -353,19 +353,22 @@ hi! LspVariable gui=italic
 hi! link LspMacro javaScriptTemplateVar
 
 
-"hi! LspProperty gui=italic "nice idea, but it looks horrible
-"hi! link LspProperty rubySymbol " maybe something brighter… but not that brighter
-"hi! link LspProperty Statement unconvincing… maybe something green-ish
-"hi! LspProperty guifg=#4d7e69
+"" ↓ looks ok, but seems like everything else is a LspProperty in sumneko lua
+"hi! LspProperty guifg=#ADCCB9
 
-"hi! link LspStruct rubyClass
-"  LspInterface
-"  LspEnumMember
-"  LspEvent
+
+" ↓ I guess
+hi! link LspStruct rubyClass
+hi! link LspString String
+hi! link LspComment Comment
+
+" ↓ trying out
+hi! link LspInterface PreProc
+hi! link LspEvent SpecialKey
+hi! link LspEnumMember Directory
+
 "  LspMethod
 "  LspModifier
-"  LspComment
-"  LspString
 "  LspNumber
 "  LspDeclaration
 "  LspDefinition
@@ -381,5 +384,4 @@ hi! LspEnum guifg=#a384a8
 hi! LspReadonly guifg=#a384a8 " class.builtin
 hi! LspDefaultLibrary guifg=#cc9d3b
 hi! LspFunction guifg=#fad07a gui=italic
-
 
