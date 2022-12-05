@@ -223,7 +223,8 @@ hi! link elixirAtom rubySymbol
 
 hi! link javaScriptValue Constant
 hi! link javaScriptRegexpString rubyRegexp
-hi! link javaScriptTemplateVar StringDelim
+" ↓ StringDelimiter + bold
+hi! javaScriptTemplateVar guifg=#556633 gui=bold
 hi! link javaScriptTemplateDelim Identifier
 hi! link javaScriptTemplateString String
 
