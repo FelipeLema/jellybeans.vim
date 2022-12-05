@@ -346,7 +346,7 @@ hi! link LspStatic StorageClass
 hi! link LspOperator pythonOperator
 hi! link LspRegexp rubyRegexp
 hi! LspDefaultLibrary guifg=#c6b6fe gui=nocombine "rubyGlobalVariable-ish
-hi! link LspTypeParameter javaScriptTemplateVar
+hi! link LspTypeParameter Structure
 hi! link LspAsync Special
 hi! link LspParameter Identifier
 hi! LspVariable gui=italic
