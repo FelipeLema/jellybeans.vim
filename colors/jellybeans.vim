@@ -291,10 +291,10 @@ hi LspReferenceRead  guibg=#405026
 hi LspReferenceWrite guibg=#384048
 
 " LSP, diagnostics (same colors as spell checking)
-hi! link SpellBad   DiagnosticError
-hi! link SpellCap   DiagnosticHint
-hi! link SpellRare  DiagnosticWarn
-hi! link SpellLocal DiagnosticInfo
+hi! link DiagnosticError SpellBad
+hi! link DiagnosticHint  SpellCap
+hi! link DiagnosticWarn  SpellRare
+hi! link DiagnosticInfo  SpellLocal
 
 hi DiagnosticUnderlineError gui=undercurl guisp=#f37970
 hi DiagnosticUnderlineHint  gui=undercurl guisp=#808080
