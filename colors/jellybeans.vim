@@ -144,10 +144,10 @@ hi Question guifg=#65C254
 
 " Spell Checking
 
-hi SpellBad guifg=#902020 gui=undercurl
-hi SpellCap guifg=#808080 gui=undercurl
-hi SpellRare guifg=#540063 gui=undercurl
-hi SpellLocal guifg=#2D7067 gui=undercurl
+hi SpellBad   guisp=#902020 gui=undercurl
+hi SpellCap   guisp=#0000df gui=undercurl
+hi SpellRare  guisp=#540063 gui=undercurl
+hi SpellLocal guisp=#2D7067 gui=undercurl
 
 " Diff
 
